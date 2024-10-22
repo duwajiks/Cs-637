@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let reviews = {}; // Mock movie reviews
 
     // Fetch the CSV file and parse it
-    fetch('datasets/imdb_top_1000.csv')
+    fetch('imdb_top_1000.csv')
         .then(response => response.text())
         .then(data => {
             const parsedData = Papa.parse(data, {
