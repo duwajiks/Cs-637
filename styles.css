@@ -1,0 +1,206 @@
+/* General Styles */
+body {
+    background-image: url('movie image.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    cursor: url('custom-cursor.png'), auto;
+}
+
+h1 {
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+    color: #ffeb3b;
+}
+
+/* Header Styles */
+header {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+/* Search Bar and Button */
+#search {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#search-bar {
+    width: 50%;
+    padding: 15px;
+    border-radius: 50px;
+    border: 2px solid #ddd;
+    transition: all 0.3s;
+}
+
+#search-bar:focus {
+    border-color: #4CAF50;
+}
+
+#search-button {
+    padding: 15px 30px;
+    background-color: #ffeb3b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+}
+
+#search-button:hover {
+    background-color: #fdd835;
+}
+
+#genre-filter {
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    margin-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Movie Cards */
+#movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.movie-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 25px;
+    width: 280px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.movie-card h3 {
+    margin-top: 0;
+    color: #ffeb3b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.movie-card p {
+    color: #fff;
+    font-weight: 300;
+}
+
+.details-btn {
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: #ffeb3b;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #fdd835;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 12px;
+    background-image: url('movie_modal_background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.close {
+    color: red;
+    font-size: 30px;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Fun Animations */
+.emoji {
+    position: absolute;
+    font-size: 24px;
+    animation: pop-up 1s ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes pop-up {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

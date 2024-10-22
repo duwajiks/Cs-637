@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer and Ratings Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Movie Explorer and Ratings Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="reviews-link">Reviews</a></li>
+                <li><a href="#" id="top-rated-link">Top Rated</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search" class="fade-in">
+            <input type="text" id="search-bar" placeholder="Search for movies...">
+            <button id="search-button">Search</button>
+            <select id="genre-filter">
+                <option value="">Pick a genre u like 😊</option>
+            </select>
+        </section>
+
+        <section id="movie-list" class="fade-in">
+        </section>
+    </main>
+
+    <!-- Modal for movie details -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <div id="modal-details"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
