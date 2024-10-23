@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let movies = []; // Store movie data globally
     let reviews = {}; // Mock movie reviews
 
-    // Fetch the CSV file and parse it
+    // Fetch the CSV file for movies
     fetch('imdb_top_1000.csv')
         .then(response => response.text())
         .then(data => {
@@ -17,16 +17,24 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-    // Update genre filter text with a cute emoji
-    const genreFilter = document.getElementById('genre-filter');
-    genreFilter.innerHTML = `<option value="">Pick a genre u like 😊</option>`;
+    // Update the modal to include a YouTube search link for all movies
+    function openModal(movie) {
+        const modal = document.getElementById('movie-modal');
+        const modalDetails = document.getElementById('modal-details');
+        const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.Series_Title)}+trailer`;
 
-    // Mock reviews data (this would come from a server or file in a real app)
-    reviews = {
-        "Inception": "Amazing movie with a complex storyline and stunning visuals.",
-        "The Dark Knight": "Heath Ledger's performance was phenomenal. A must-watch.",
-        "Pulp Fiction": "A classic Quentin Tarantino movie with great dialogues."
-    };
+        modal.style.display = 'block';
+        modalDetails.innerHTML = `
+            <h2>${movie.Series_Title}</h2>
+            <p><strong>Year:</strong> ${movie.Released_Year}</p>
+            <p><strong>Rating:</strong> ${movie.IMDB_Rating}</p>
+            <p><strong>Overview:</strong> ${movie.Overview}</p>
+            <p><strong>Director:</strong> ${movie.Director}</p>
+            <p><strong>Stars:</strong> ${movie.Star1}, ${movie.Star2}, ${movie.Star3}, ${movie.Star4}</p>
+            <p><strong>Genre:</strong> ${movie.Genre}</p>
+            <p><a href="${youtubeSearchUrl}" target="_blank">Search for Trailer on YouTube</a></p>
+        `;
+    }
 
     // Event listeners for the navigation
     document.getElementById('home-link').addEventListener('click', function () {
@@ -50,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Genre filter functionality
+    const genreFilter = document.getElementById('genre-filter');
     genreFilter.addEventListener('change', function (event) {
         const selectedGenre = event.target.value;
         const filteredMovies = selectedGenre ? movies.filter(movie => movie.Genre.includes(selectedGenre)) : movies;
@@ -61,29 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalDetails = document.getElementById('modal-details');
     const closeModal = document.querySelector('.close');
 
-    function openModal(movie) {
-        modal.style.display = 'block';
-        modalDetails.innerHTML = `
-            <h2>${movie.Series_Title}</h2>
-            <p><strong>Year:</strong> ${movie.Released_Year}</p>
-            <p><strong>Rating:</strong> ${movie.IMDB_Rating}</p>
-            <p><strong>Overview:</strong> ${movie.Overview}</p>
-            <p><strong>Director:</strong> ${movie.Director}</p>
-            <p><strong>Stars:</strong> ${movie.Star1}, ${movie.Star2}, ${movie.Star3}, ${movie.Star4}</p>
-            <p><strong>Genre:</strong> ${movie.Genre}</p>
-            <img src="movie_modal_background.jpg" alt="${movie.Series_Title}" class="modal-background-image">
-        `;
-    }
-
     closeModal.onclick = function () {
         modal.style.display = 'none';
-    }
+    };
 
     window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
-    }
+    };
 
     // Function to display movies
     function displayMovies(movies) {
@@ -129,24 +124,4 @@ document.addEventListener('DOMContentLoaded', function () {
             genreFilter.appendChild(option);
         });
     }
-
-    // Fun animation for emoji pop-up
-    document.body.addEventListener('click', function (event) {
-        const emoji = document.createElement('div');
-        emoji.className = 'emoji';
-        emoji.style.left = `${event.clientX}px`;
-        emoji.style.top = `${event.clientY}px`;
-        emoji.textContent = '⭐'; // we can change this to any emoji or symbol
-        document.body.appendChild(emoji);
-
-        setTimeout(() => {
-            emoji.remove();
-        }, 1000);
-    });
-
-    // Stickman animation (optional trigger)
-    const stickmanAnimation = document.getElementById('stickman-animation');
-    setTimeout(() => {
-        stickmanAnimation.style.display = 'block';
-    }, 2000); // Display the stickman animation after 2 seconds
 });
