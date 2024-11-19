@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const movieCard = document.createElement('div');
             movieCard.className = 'movie-card';
             movieCard.innerHTML = `
+                <img src="${movie.Poster_Link}">
                 <h3>${movie.Series_Title}</h3>
                 <p>Year: ${movie.Released_Year}</p>
                 <p>Rating: ${movie.IMDB_Rating}</p>
