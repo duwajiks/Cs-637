@@ -128,11 +128,6 @@ nav ul li a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.movie-card p {
-    color: #fff;
-    font-weight: 300;
-}
-
 .details-btn {
     border-radius: 25px;
     padding: 10px 20px;
@@ -180,27 +175,31 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* Fun Animations */
-.emoji {
-    position: absolute;
-    font-size: 24px;
-    animation: pop-up 1s ease-in-out;
-    pointer-events: none;
+/* Pagination Styles */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-@keyframes pop-up {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
+#pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #ffeb3b;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
+#pagination button:hover {
+    background-color: #fdd835;
+}
 
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
+#pagination button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
 }
