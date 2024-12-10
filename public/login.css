@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/movie/public/assets/images/login_pic.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Overlay to enhance text visibility */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Login Container */
+.login-container {
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    opacity: 0.95;
+}
+
+/* Heading */
+.login-container h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Labels */
+.login-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-align: left;
+    color: #555;
+}
+
+/* Input Fields */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Input Field Focus */
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #74ebd5;
+    outline: none;
+    box-shadow: 0 0 4px rgba(116, 235, 213, 0.8);
+}
+
+/* Button */
+.login-container button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #74ebd5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover */
+.login-container button:hover {
+    background-color: #57c4ba;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+
+    .login-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .login-container input,
+    .login-container button {
+        font-size: 0.9rem;
+    }
+}
